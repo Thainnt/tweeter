@@ -1,0 +1,33 @@
+.header {
+  height: 400px;
+  width: 100%;
+  background-color: #033d00;
+  background-image: url("../images/brick-wall.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-avatar {
+  height: 160px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  max-height: 160px;
+}
+
+.container-userName {
+  height: 120px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userName {
+  color:#FFFFFF;
+  margin: 0em;
+}
