@@ -9,6 +9,11 @@
   color: #454545;
 }
 
+.counter-over-limit {
+  font-family: 'Bungee', cursive;
+  color: #5f0101;
+}
+
 .lower-container{
   height: auto;
   width: 100%;

@@ -17,7 +17,8 @@
 }
 
 .avatar {
-  max-height: 155px;
+  max-height: 160px;
+  margin-top: 5px;
 }
 
 .container-userName {
