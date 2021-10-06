@@ -1,4 +1,4 @@
-.navBar {
+.nav-bar {
   position: absolute;
   z-index: 1;
   height: 120px;
@@ -17,7 +17,7 @@
   margin: 0em 1.5em;
 }
 
-.newTweet {
+.write-new-tweet {
   color:#FFFFFF;
   display: flex;
   margin: 0em 1.5em;

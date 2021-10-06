@@ -21,14 +21,14 @@
   margin-top: 5px;
 }
 
-.container-userName {
+.container-username {
   height: 120px;
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.userName {
+.username {
   color:#FFFFFF;
   margin: 0em;
 }
