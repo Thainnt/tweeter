@@ -1,6 +1,7 @@
 .article-tweet{
+  width: 100%;
   border: solid #454545;
-  margin: 1em 0;
+  margin: 0.5em 0;
   transition: box-shadow 0.3s;
   float: left;
 }
