@@ -5,47 +5,62 @@
  */
 'use strict';
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-      "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1261113959088
-  },
+// // Fake data taken from initial-tweets.json
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//       "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1261113959088
+//   },
 
-  {
-    "user": {
-      "name": "Grandma",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@gr"
-    },
-    "content": {
-      "text": "Home food is best food."
-    },
-    "created_at": 1561116232290
-  }
-]
+//   {
+//     "user": {
+//       "name": "Grandma",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@gr"
+//     },
+//     "content": {
+//       "text": "Home food is best food."
+//     },
+//     "created_at": 1561116232290
+//   }
+// ]
 
 
 $(document).ready(function() {
+  
+  const loadTweets = () => {
+    $.ajax('/tweets', {
+      method: 'GET',
+      dataType: 'json',
+      success: (tweetData) => {
+        renderTweets(tweetData);
+      },
+      error: (err) => {
+        console.log(`Error details: ${err}`);
+      }
+    });
+  };
+
+  loadTweets();
 
   const createTweetElement = function(tweet) {
     const $tweet = $('<article>').addClass('article-tweet');
@@ -78,7 +93,7 @@ $(document).ready(function() {
     return $tweet;
   }
 
-  const renderTweets = function(tweets) {
+  const renderTweets = (tweets) => {
     const $tweetContainer = $('#tweets-container');
 
     for (const tweet of tweets) {
@@ -97,9 +112,7 @@ $(document).ready(function() {
 
     $.post('/tweets', serializeData, (response) => {
       console.log(response);
-    })  
-  })
+    });
+  });
 
-  renderTweets(data);
-  
 });
