@@ -105,13 +105,25 @@ $(document).ready(function() {
   const $form = $('#new-tweet');
   $form.on('submit', function(event) {
     event.preventDefault();
-    console.log('submitted...');
+    
+    const inputTweet = $(this)[0][0].value;
+    
+    //Validate if the new tweet is empty or too long
+    if (inputTweet.length < 1) {
+      alert("I can't hear you");
+      return;
+    } else if (inputTweet.length > 140) {
+      alert('@_@ you hummed too longgggg');
+      return;
+    }
 
+    console.log('submitted...');
+    
     const serializeData = $(this).serialize();
-    console.log(serializeData);
+    console.log('serialize: ',serializeData);
 
     $.post('/tweets', serializeData, (response) => {
-      console.log(response);
+      console.log('response: ',response);
     });
   });
 
