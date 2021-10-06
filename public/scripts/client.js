@@ -87,6 +87,19 @@ $(document).ready(function() {
     }
   };
 
-  renderTweets(data);
+  const $form = $('#new-tweet');
+  $form.on('submit', function(event) {
+    event.preventDefault();
+    console.log('submitted...');
 
+    const serializeData = $(this).serialize();
+    console.log(serializeData);
+
+    $.post('/tweets', serializeData, (response) => {
+      console.log(response);
+    })  
+  })
+
+  renderTweets(data);
+  
 });
