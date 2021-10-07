@@ -63,7 +63,9 @@
         <form id='new-tweet' method="POST" action="/tweets">
           <div class="upper-container">
             <label class="label-tweet-text" for="tweet-text">What are you humming about?</label>
-            <textarea class="input" name="text" id="tweet-text"></textarea>
+            <label class="error-message" id='error-empty'>Hmm...I can't hear you, please type something...</label>
+            <label class="error-message" id='error-exceed-length'>Wow! You hummed too longgggg, let's make it shorter...</label>
+            <textarea class="input" name="text" id="tweet-text" type='reset'></textarea>
             <hr/>
           </div>
           <div class="lower-container">

@@ -122,22 +122,21 @@ $(document).ready(function() {
     
     //Validate if the new tweet is empty or too long
     const inputTweet = $(this)[0][0].value;
+    $('.error-message').hide();
     if (inputTweet.length < 1) {
-      alert("I can't hear you");
-      return;
+      $('#error-empty').show(400);
     } else if (inputTweet.length > 140) {
-      alert('@_@ you hummed too longgggg');
-      return;
+      $('#error-exceed-length').show(400);
+    } else {
+      $('.error-message').hide();
+      const serializeData = $(this).serialize();
+  
+      $(this)[0].reset();
+      $.post('/tweets', serializeData, function(response) {
+        loadTweets();
+      });
+
     }
-
-    console.log('submitted...');
-    
-    const serializeData = $(this).serialize();
-
-    $.post('/tweets', serializeData, (response) => {
-      loadTweets();
-    });
-
 
   });
 

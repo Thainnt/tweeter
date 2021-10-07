@@ -38,6 +38,13 @@
   border: none;
 }
 
+.error-message {
+  display: none;
+  color: rgb(140, 0, 0);
+  font-weight: 600;
+  text-align: right;
+}
+
 hr {
   display: block;
   border: 0;
