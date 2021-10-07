@@ -1,3 +1,7 @@
+.new-tweet {
+  padding: 1.2em 0;
+}
+
 .tweet-button {
   background-color: #4056A1;
   font-family: 'Bungee', cursive;
@@ -36,6 +40,8 @@
 #tweet-text {
   background: transparent;
   border: none;
+  border-bottom: solid #454545;
+  margin: 0.2em 0;
 }
 
 .error-message {
@@ -43,12 +49,4 @@
   color: rgb(140, 0, 0);
   font-weight: 600;
   text-align: right;
-}
-
-hr {
-  display: block;
-  border: 0;
-  border-top: 2px solid #454545;
-  margin: 0.2em 0.2em;
-  padding: 0;
 }

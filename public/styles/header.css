@@ -16,7 +16,7 @@
   justify-content: center;
 }
 
-.avatar {
+.header-avatar {
   max-height: 160px;
   margin-top: 5px;
 }
@@ -28,7 +28,36 @@
   align-items: center;
   justify-content: center;
 }
-.username {
+.header-username {
   color:#FFFFFF;
   margin: 0em;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+
+  .header {
+    width: 30vw;
+    height: 40vh;
+    margin: 3em;
+    flex-grow: 1;
+  }
+
+  .container-avatar {
+    height: 8em;
+    width: 4em;
+  }
+  .container-username {
+    height: 2em;
+    width: 100%;
+  }
+
+  .header-avatar {
+    height: 8em;
+  }
+
+  .header-username {
+    font-size: 1em;
+  }
+
 }

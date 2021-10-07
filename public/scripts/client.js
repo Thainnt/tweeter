@@ -84,7 +84,6 @@ $(document).ready(function() {
     const $handle = $('<span>').addClass('article-tweet-handle').text(tweet.user.handle);
     
     const $tweetContent = $('<p>').addClass('article-tweet-content').text(tweet.content.text);
-    const $tweetBorder = $('<hr/>').addClass('hr');
     
     const $footerContainer = $('<footer>').addClass('article-tweet-footer');
     const $createdTime = $('<span>').addClass('tweet-age').text(timeago.format(tweet.created_at));
@@ -100,7 +99,7 @@ $(document).ready(function() {
     $iconContainer.append($flagIcon, $retweeticon, $heartIcon);
     $footerContainer.append($createdTime, $iconContainer);
 
-    $tweet.append($headerContainer, $tweetContent, $tweetBorder, $footerContainer);
+    $tweet.append($headerContainer, $tweetContent, $footerContainer);
     
     return $tweet;
   }

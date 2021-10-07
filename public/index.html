@@ -3,6 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -33,49 +34,63 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
+
     <nav class="nav-bar">
+
       <span class="logo">tweeter</span>
+
       <span class="write-new-tweet">
         <span class="text"><strong>Write</strong> a new tweet</span>
         <div class="icon"><i class="fas fa-angle-double-down"></i></div>
       </span>
+      
     </nav>
 
-    <header class="header">
-      <div class="container-username">
-      </div>
-      <div class="container-avatar">
-        <div>
-            <img class="avatar" src="/images/profile-hex.png"> 
-        </div>
-      </div>
-      <div class="container-username">
-        <div>
-            <h2 class="username"><strong>Your</strong> Name</h2>
-        </div>
-      </div>
-    </header>
+    <section class="app-container">
+      <header class="header">
+        <div class="container-username"></div>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form id='new-tweet' method="POST" action="/tweets">
-          <div class="upper-container">
-            <label class="label-tweet-text" for="tweet-text">What are you humming about?</label>
-            <label class="error-message" id='error-empty'>Hmm...I can't hear you, please type something...</label>
-            <label class="error-message" id='error-exceed-length'>Wow! You hummed too longgggg, let's make it shorter...</label>
-            <textarea class="input" name="text" id="tweet-text" type='reset'></textarea>
-            <hr/>
+        <div class="container-avatar">
+          <div>
+              <img class="header-avatar" src="/images/profile-hex.png"> 
           </div>
-          <div class="lower-container">
-            <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+        </div>
+
+        <div class="container-username">
+          <div>
+              <h2 class="header-username">Arale Ara</h2>
           </div>
-        </form>
-      </section>
-      <section id='tweets-container'>
-      </section>
-    </main>
+        </div>
+      </header>
+
+
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+
+        <section class="new-tweet">
+          <!-- <h2>Compose Tweet</h2> -->
+          <form id='new-tweet' method="POST" action="/tweets">
+
+            <div class="upper-container">
+              <label class="label-tweet-text" for="tweet-text">What are you humming about?</label>
+              <label class="error-message" id='error-empty'>Hmm...I can't hear you, please type something...</label>
+              <label class="error-message" id='error-exceed-length'>Wow! You hummed too longgggg, let's make it shorter...</label>
+              <textarea class="input" name="text" id="tweet-text" type='reset'></textarea>
+            </div>
+
+            <div class="lower-container">
+              <button class="tweet-button" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+
+          </form>
+        </section>
+
+        <section id='tweets-container'></section>
+        
+      </main>      
+    </section>
+      
   </body>
+
 </html>

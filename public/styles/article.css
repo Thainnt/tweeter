@@ -31,6 +31,8 @@
 .article-tweet-content {
   margin: 0.5em 1em;
   font-weight: 600;
+  border: none;
+  border-bottom: solid #454545;
 }
 
 .article-tweet-footer {
