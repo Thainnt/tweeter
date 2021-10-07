@@ -48,15 +48,27 @@
 $(document).ready(function() {
   
   const loadTweets = () => {
+
     $.ajax('/tweets', {
       method: 'GET',
       dataType: 'json',
       success: (tweetData) => {
-        renderTweets(tweetData);
+
+        //Sort tweets by creation time
+        let tweets = tweetData;
+        tweets.sort((a, b) => {
+          return b.created_at - a.created_at;
+        });
+
+        console.log(tweets);
+
+        renderTweets(tweets);
       },
+
       error: (err) => {
         console.log(`Error details: ${err}`);
       }
+
     });
   };
 
@@ -95,6 +107,7 @@ $(document).ready(function() {
 
   const renderTweets = (tweets) => {
     const $tweetContainer = $('#tweets-container');
+    $tweetContainer.empty();
 
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
@@ -106,9 +119,9 @@ $(document).ready(function() {
   $form.on('submit', function(event) {
     event.preventDefault();
     
-    const inputTweet = $(this)[0][0].value;
     
     //Validate if the new tweet is empty or too long
+    const inputTweet = $(this)[0][0].value;
     if (inputTweet.length < 1) {
       alert("I can't hear you");
       return;
@@ -120,11 +133,12 @@ $(document).ready(function() {
     console.log('submitted...');
     
     const serializeData = $(this).serialize();
-    console.log('serialize: ',serializeData);
 
     $.post('/tweets', serializeData, (response) => {
-      console.log('response: ',response);
+      loadTweets();
     });
+
+
   });
 
 });
