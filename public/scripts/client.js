@@ -5,46 +5,6 @@
  */
 'use strict';
 
-// // Fake data taken from initial-tweets.json
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//       "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1261113959088
-//   },
-
-//   {
-//     "user": {
-//       "name": "Grandma",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@gr"
-//     },
-//     "content": {
-//       "text": "Home food is best food."
-//     },
-//     "created_at": 1561116232290
-//   }
-// ]
-
-
 $(document).ready(function() {
   
   const loadTweets = () => {
@@ -54,7 +14,7 @@ $(document).ready(function() {
       dataType: 'json',
       success: (tweetData) => {
 
-        //Sort tweets by creation time
+        //Sort tweets by creation time before rendering all tweets
         let tweets = tweetData;
         tweets.sort((a, b) => {
           return b.created_at - a.created_at;
@@ -75,6 +35,7 @@ $(document).ready(function() {
   loadTweets();
 
   const createTweetElement = function(tweet) {
+    //Create all elements of a tweet
     const $tweet = $('<article>').addClass('article-tweet');
 
     const $headerContainer = $('<header>').addClass('article-tweet-header');
@@ -92,7 +53,7 @@ $(document).ready(function() {
     const $flagIcon = $('<i>').addClass('fas fa-flag');
     const $retweeticon = $('<i>').addClass('fas fa-retweet');
     const $heartIcon = $('<i>').addClass('fas fa-heart');
-  
+    //Append elements to sub containers, then append usb containers to a tweet
     $userContainer.append($avatar, $username);
     $headerContainer.append($userContainer, $handle);
     
@@ -119,7 +80,7 @@ $(document).ready(function() {
     event.preventDefault();
     
     
-    //Validate if the new tweet is empty or too long
+    //Validate if the new tweet is empty or too long and display related messages
     const inputTweet = $(this)[0][0].value;
     $('.error-message').hide();
     if (inputTweet.length < 1) {
@@ -131,6 +92,7 @@ $(document).ready(function() {
       const serializeData = $(this).serialize();
   
       $(this)[0].reset();
+      
       $.post('/tweets', serializeData, function(response) {
         loadTweets();
       });

@@ -48,6 +48,7 @@
 
     <section class="app-container">
       <header class="header">
+        <!-- Create an extra container on top of container-avatar and container-username to align container-avatar in the middle of header-->
         <div class="container-username"></div>
 
         <div class="container-avatar">
@@ -68,14 +69,13 @@
       <main class="container">
 
         <section class="new-tweet">
-          <!-- <h2>Compose Tweet</h2> -->
           <form id='new-tweet' method="POST" action="/tweets">
 
             <div class="upper-container">
               <label class="label-tweet-text" for="tweet-text">What are you humming about?</label>
               <label class="error-message" id='error-empty'>Hmm...I can't hear you, please type something...</label>
               <label class="error-message" id='error-exceed-length'>Wow! You hummed too longgggg, let's make it shorter...</label>
-              <textarea class="input" name="text" id="tweet-text" type='reset'></textarea>
+              <textarea class="input" name="text" id="tweet-text"></textarea>
             </div>
 
             <div class="lower-container">

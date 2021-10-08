@@ -34,13 +34,12 @@
 }
 
 /* Tablet Styles */
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
 
   .header {
     width: 30vw;
     height: 40vh;
-    margin: 3em;
-    flex-grow: 1;
+    margin: 1.5em;
   }
 
   .container-avatar {
