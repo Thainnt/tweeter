@@ -32,3 +32,22 @@
 .icon {
   color:red;
 }
+
+.icon:hover {
+  animation-name: moving;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+@keyframes moving{
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.4em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

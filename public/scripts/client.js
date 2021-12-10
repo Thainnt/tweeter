@@ -15,14 +15,13 @@ $(document).ready(function() {
       success: (tweetData) => {
 
         //Sort tweets by creation time before rendering all tweets
-        let tweets = tweetData;
-        tweets.sort((a, b) => {
-          return b.created_at - a.created_at;
-        });
+        // let tweets = tweetData;
+        // tweets.sort((a, b) => {
+        //   return b.created_at - a.created_at;
+        // });
+        // console.log(tweets);
 
-        console.log(tweets);
-
-        renderTweets(tweets);
+        renderTweets(tweetData);
       },
 
       error: (err) => {
@@ -71,7 +70,7 @@ $(document).ready(function() {
 
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $tweetContainer.append($tweet);
+      $tweetContainer.prepend($tweet);
     }
   };
 
@@ -96,9 +95,7 @@ $(document).ready(function() {
       $.post('/tweets', serializeData, function(response) {
         loadTweets();
       });
-
     }
 
   });
-
 });

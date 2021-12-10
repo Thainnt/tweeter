@@ -10,5 +10,5 @@ $( document ).ready(function() {
       counterEl.removeClass('counter-over-limit');
     }
 
-  })
+  });
 });
